@@ -12,7 +12,7 @@ def getIntoFirstGame():
 
     pic1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/TFTtab2.png', confidence = 0.75)
     if pic1 != None:
-        print("Pic found!")
+        #print("Pic found!")
         pic1 = pyA.center(pic1)
         pic1X, pic1Y = pic1
         time.sleep(1)
@@ -20,7 +20,7 @@ def getIntoFirstGame():
         pyA.mouseDown()
         pyA.mouseUp()
     else:
-        print("Did not find first TFT Tab")
+        #print("Did not find first TFT Tab")
         return
 
     time.sleep(3)
@@ -28,7 +28,7 @@ def getIntoFirstGame():
     pic2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playbutton.PNG', confidence = 0.75)
     pic22 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/partybutton.PNG', confidence = 0.75)
     if pic2 != None:
-        print("Pic found!")
+       #print("Pic found!")
         pic2 = pyA.center(pic2)
         pic2X, pic2Y = pic2
         time.sleep(1)
@@ -36,7 +36,7 @@ def getIntoFirstGame():
         pyA.mouseDown()
         pyA.mouseUp()
     elif pic22 != None:
-        print("Pic found!")
+        #print("Pic found!")
         pic22 = pyA.center(pic22)
         pic22X, pic22Y = pic22
         time.sleep(1)
@@ -44,7 +44,7 @@ def getIntoFirstGame():
         pyA.mouseDown()
         pyA.mouseUp()
     else:
-        print("Did not find play button")
+        #print("Did not find play button")
         return
 
     time.sleep(3)
@@ -52,7 +52,7 @@ def getIntoFirstGame():
 
     pic3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/teamfighttab.PNG', confidence = 0.75)
     if pic3 != None:
-        print("Pic found!")
+       #print("Pic found!")
         pic3 = pyA.center(pic3)
         pic3X, pic3Y = pic3
         time.sleep(1)
@@ -60,14 +60,14 @@ def getIntoFirstGame():
         pyA.mouseDown()
         pyA.mouseUp() 
     else:
-        print("Did not find team fight tab")
+        #print("Did not find team fight tab")
         return
 
     time.sleep(3)
 
     pic4 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/confirmbutton.PNG', confidence = 0.75)
     if pic4 != None:
-        print("Pic found!")
+        #print("Pic found!")
         pic4 = pyA.center(pic4)
         pic4X, pic4Y = pic4
         time.sleep(1)
@@ -75,7 +75,7 @@ def getIntoFirstGame():
         pyA.mouseDown()
         pyA.mouseUp()
     else:
-        print("Did not find the confirm button")
+        #print("Did not find the confirm button")
         return
 
     time.sleep(4)
@@ -83,7 +83,7 @@ def getIntoFirstGame():
 
     pic5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/findMatchbutton.PNG', confidence = 0.75)
     if pic5 != None:
-        print("Pic found!")
+        #print("Pic found!")
         pic5 = pyA.center(pic5)
         pic5X, pic5Y = pic5
         time.sleep(1)
@@ -91,7 +91,7 @@ def getIntoFirstGame():
         pyA.mouseDown()
         pyA.mouseUp()
     else:
-        print("Did not find the find match button")
+        #print("Did not find the find match button")
         return
 
     time.sleep(3)
@@ -101,7 +101,7 @@ def getIntoFirstGame():
     while notinGame:
         pic6 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/Accept2.PNG', confidence = 0.9)
         if pic6 != None:
-            print("Pic found!")
+            #print("Pic found!")
             pic6 = pyA.center(pic6)
             pic6X, pic6Y = pic6
             time.sleep(1)
@@ -109,17 +109,17 @@ def getIntoFirstGame():
             pyA.mouseDown()
             pyA.mouseUp()
         else:
-            print("Did not find the match accepted button. Trying again")
-
-        time.sleep(3)
+            pass
+            #print("Did not find the match accepted button. Trying again")
+        time.sleep(5)
         #Check if I am in the match
         if (pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/TFTTab2.PNG', confidence = 0.75)) == None:
             notinGame = False
-            print("i am now in game")
+            #print("i am now in game")
 
     
-    print("end of getIntofirstgame script")
-    print(datetime.now())
+    #print("end of getIntofirstgame script")
+    #print(datetime.now())
     
 
 def surrender():
@@ -164,7 +164,7 @@ def exitGame():
     time.sleep(3)
     ex = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.75)
     if ex != None:
-        print("Pic found!")
+        #print("Pic found!")
         ex = pyA.center(ex)
         exX, exY = ex
         time.sleep(1)
@@ -172,24 +172,24 @@ def exitGame():
         pyA.click(exX, exY) #double clicking does not work either
         pyA.mouseDown()
         pyA.mouseUp()
-        print('exit now button clicked')
-        print(datetime.now())
+        #print('exit now button clicked')
+        #print(datetime.now())
         return 10
 
     else:
-        print("Did not find the exit button")
-        print(datetime.now())
+        #print("Did not find the exit button")
+        #print(datetime.now())
         if pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/gameIsOver.PNG') != None:
-            print("I proabbly got first becaues the game exited by itself lol!")
-            print(datetime.now())
+            #print("I proabbly got first becaues the game exited by itself lol!")
+            #print(datetime.now())
             return 10
         elif pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG') != None:
-            print("I proabbly got first becaues the game exited by itself lol!")
-            print(datetime.now())
+            #print("I proabbly got first becaues the game exited by itself lol!")
+            #print(datetime.now())
             return 10
         elif pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG') != None:
-            print("I proabbly got first or second becaues the game exited by itself lol!")
-            print(datetime.now())
+            #print("I proabbly got first or second becaues the game exited by itself lol!")
+            #print(datetime.now())
             return 10
         else:
             return 2
@@ -204,8 +204,8 @@ def reEnter():
         pyA.click(okButtonX, okButtonY) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('finished quest ok button clicked')
-        print(datetime.now())
+        #print('finished quest ok button clicked')
+        #print(datetime.now())
 
     time.sleep(3)
 
@@ -217,8 +217,8 @@ def reEnter():
         pyA.click(okButtonX, okButtonY) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('finished quest ok button clicked')
-        print(datetime.now())
+        #print('finished quest ok button clicked')
+        #print(datetime.now())
 
     time.sleep(3)
 
@@ -232,8 +232,8 @@ def reEnter():
         pyA.click(okButtonX, okButtonY) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('finished quest ok button clicked')
-        print(datetime.now())
+        #print('finished quest ok button clicked')
+        #print(datetime.now())
     
     time.sleep(3)
 
@@ -245,8 +245,8 @@ def reEnter():
         pyA.click(okButtonX, okButtonY) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('finished quest ok button clicked')
-        print(datetime.now())
+        #print('finished quest ok button clicked')
+        #print(datetime.now())
         
     time.sleep(3)
 
@@ -258,26 +258,26 @@ def reEnter():
         pyA.click(okButtonX, okButtonY) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('finished quest ok button clicked')
-        print(datetime.now())
+        #print('finished quest ok button clicked')
+        #print(datetime.now())
     
     time.sleep(4)
 
 
     playAgain = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.75)
     if playAgain != None:
-        print("Pic found!")
+        #print("Pic found!")
         playAgain = pyA.center(playAgain)
         playAgainX, playAgainY = playAgain
         time.sleep(1)
         pyA.click(playAgainX, playAgainY) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('playagain button clicked')
-        print(datetime.now())
+        #print('playagain button clicked')
+        #print(datetime.now())
     else:
-        print("Did not find the play again button")
-        print(datetime.now())
+        #print("Did not find the play again button")
+        #print(datetime.now())
         return
 
     time.sleep(4)
@@ -291,11 +291,11 @@ def reEnter():
         pyA.click(pic5X, pic5Y) 
         pyA.mouseDown()
         pyA.mouseUp()
-        print('found the re find match button for next game')
-        print(datetime.now())
+        #print('found the re find match button for next game')
+        #print(datetime.now())
     else:
-        print("Did not find the re-find match button")
-        print(datetime.now())
+        #print("Did not find the re-find match button")
+        #print(datetime.now())
         return 6
 
     time.sleep(3)
@@ -311,22 +311,23 @@ def reEnter():
             pyA.click(pic6X, pic6Y)
             pyA.mouseDown()
             pyA.mouseUp() 
-            print('found the match accepted button for the next match')
-            print(datetime.now())
+            #print('found the match accepted button for the next match')
+            #print(datetime.now())
         else:
-            print("Did not find the match accepted button. Trying again")
-            print(datetime.now())
+            #print("Did not find the match accepted button. Trying again")
+            #print(datetime.now())
+            pass
 
-        time.sleep(3)
+        time.sleep(5)
         #Check if I am in the match
         if (pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/TFTTab2.PNG', confidence = 0.75)) == None:
             notinGame = False
-            print("i am now in game")
-            print(datetime.now())
+            #print("i am now in game")
+            #print(datetime.now())
 
     
-    print("re enter script done")
-    print(datetime.now())
+    #print("re enter script done")
+    #print(datetime.now())
 
 
 
@@ -340,14 +341,15 @@ def reset():
 def loadingScreen():
     notinGame = True
     while notinGame:
-        time.sleep(6)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
-        if re != None:
-            print('match has finished loading and I am now in planning phase')
-            print(datetime.now())
+        time.sleep(30)
+        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/loadingIN.PNG', confidence = 0.9)
+        if re == None:
+            #print('match has finished loading and I am now in planning phase')
+            #print(datetime.now())
             notinGame = False
         else:
-            print("Match still loading screen")
+            #print("Match still loading screen")
+            pass
         
     
 
@@ -444,7 +446,7 @@ def buyXP2():
     y = 0
     notinGame = True
     while notinGame:
-        time.sleep(6)
+        time.sleep(10)
         #lvl5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl5.PNG', confidence = 0.9)
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
         if re != None:
@@ -452,8 +454,8 @@ def buyXP2():
             reX, reY = re
             time.sleep(1)
             pyA.click(reX, reY)
-            print('buying xp now')
-            print(datetime.now())
+            #print('buying xp now')
+            #print(datetime.now())
             x = 0
             while x < 14:
                 pyA.mouseDown()
@@ -468,10 +470,10 @@ def buyXP2():
                 
             notinGame = False
         else:
-            print("xp not found (planning phase not found)")    
+            #print("xp not found (planning phase not found)")    
             y+=1
             if y > 50:
-                print('did i really lose that quickly...')
+                #print('did i really lose that quickly...')
                 return
         
     dragGoodChamp()
@@ -479,7 +481,7 @@ def buyXP2():
 def buyXP2Early():
     notinGame = True
     while notinGame:
-        time.sleep(6)
+        time.sleep(10)
         lvl5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl5.PNG', confidence = 0.9)
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
         if lvl5 != None and re != None:
@@ -487,8 +489,8 @@ def buyXP2Early():
             reX, reY = re
             time.sleep(1)
             pyA.click(reX, reY)
-            print('buying xp now')
-            print(datetime.now())
+            #print('buying xp now')
+            #print(datetime.now())
             x = 0
             while x < 5:
                 pyA.mouseDown()
@@ -503,7 +505,7 @@ def buyXP2Early():
 def dragGoodChamp():
     champs = 0
     checking = True
-    while checking and champs < 8:
+    while checking and champs < 10:
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
         g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
         g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
@@ -714,7 +716,14 @@ def inGame():
 
 
 
-
+def altTab():
+    time.sleep(1)
+    pyA.hotkey('alt', 'tab')  
+    time.sleep(1)
+    pyA.click(700,400)
+    time.sleep(2)
+    
+        
 
 
 
@@ -835,31 +844,36 @@ def main5():
     keepGoing = True
     while keepGoing:
         loadingScreen()
-        time.sleep(420) #7
+        altTab()
+        time.sleep(480) #8
         print('one min until buying champs at level 5 maxreroll 3 times')
         time.sleep(60) #1
+        altTab()
         buyXP2Early()
+        altTab()
         time.sleep(300) #5
         print('one min until upgrading to level 7 and buying champs until no gold left')
         time.sleep(60)
+        altTab()
         buyXP2()
+        altTab()
         time.sleep(180)#3
         print('1 min left')
         time.sleep(60)#1
+        altTab()
         x = 3
         while x < 5:
             time.sleep(20)
             x = exitGame()
-            print(x)
+            #print(x)
         print('recognized game finished!')
         time.sleep(7)
         if reEnter() == 6:
-            print('program is stopping')
+            #print('program is stopping')
             break
 
 def main6():
-    #buyXP2Early()
-    buyXP2()
+    altTab()
 
 #main()
 #main2()
