@@ -172,6 +172,8 @@ def exitGame():
         pyA.click(exX, exY) #double clicking does not work either
         pyA.mouseDown()
         pyA.mouseUp()
+        pyA.mouseDown()
+        pyA.mouseUp()
         #print('exit now button clicked')
         #print(datetime.now())
         return 10
@@ -471,12 +473,12 @@ def buyXP2():
             notinGame = False
         else:
             #print("xp not found (planning phase not found)")    
-            y+=1
-            if y > 50:
-                #print('did i really lose that quickly...')
-                return
+            re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.9)
+            re2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.9)
+            if re != None or re2 != None:
+                break
         
-    dragGoodChamp()
+    dragGoodChampsLate()
 
 def buyXP2Early():
     notinGame = True
@@ -492,7 +494,7 @@ def buyXP2Early():
             #print('buying xp now')
             #print(datetime.now())
             x = 0
-            while x < 5:
+            while x < 6:
                 pyA.mouseDown()
                 time.sleep(0.2)
                 pyA.mouseUp()
@@ -554,12 +556,67 @@ def dragGoodChamp():
             champs +=1
         if re == None:
             checking = False
-        time.sleep(1.5)
+        time.sleep(1)
+        pyA.click(700,400)
+        time.sleep(1)
+        
+def dragGoodChampsLate():
+    checking = 0 
+    rerolls = 0
+    while checking < 18:
+        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
+        g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
+        g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
+        g3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/5champ.PNG', confidence = 0.8)
+        g4 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/9champ.PNG', confidence = 0.8)
+        if g4 != None:
+            g4 = pyA.center(g4)
+            g4X, g4Y = g4
+            pyA.click(g4X, g4Y)
+            pyA.mouseDown()
+            time.sleep(0.2)
+            pyA.mouseUp()
+            checking += 2
+        if g3 != None:
+            g3 = pyA.center(g3)
+            g3X, g3Y = g3
+            pyA.click(g3X, g3Y)
+            pyA.mouseDown()
+            time.sleep(0.2)
+            pyA.mouseUp()
+            checking +=2
+        if g2 != None:
+            g2 = pyA.center(g2)
+            g2X, g2Y = g2
+            pyA.click(g2X, g2Y)
+            pyA.mouseDown()
+            time.sleep(0.2)
+            pyA.mouseUp()
+            checking +=2
+        if g1 != None:
+            g1 = pyA.center(g1)
+            g1X, g1Y = g1
+            pyA.click(g1X, g1Y)
+            pyA.mouseDown()
+            time.sleep(0.2)
+            pyA.mouseUp()
+            checking +=2
+        elif re != None:
+            re = pyA.center(re)
+            reX, reY = re
+            pyA.click(reX, reY)
+            pyA.mouseDown()
+            time.sleep(0.2)
+            pyA.mouseUp()
+            time.sleep(1)
+        if re == None:
+            checking += 100 
+        time.sleep(1)
 
 def dragGoodChampEarly():
     checking = 0
     rerolls = 0
-    while checking < 6 and rerolls < 8:
+    while checking < 6 and rerolls < 6:
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
         g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
         g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
@@ -606,7 +663,7 @@ def dragGoodChampEarly():
             pyA.mouseUp()
             time.sleep(1)
             rerolls +=1   
-        time.sleep(1.5)
+        time.sleep(1)
 
 
 def dragChamp():
@@ -843,6 +900,7 @@ def main5():
     getIntoFirstGame()
     keepGoing = True
     while keepGoing:
+        time.sleep(10)
         loadingScreen()
         altTab()
         time.sleep(480) #8
@@ -851,29 +909,49 @@ def main5():
         altTab()
         buyXP2Early()
         altTab()
-        time.sleep(300) #5
+        time.sleep(180) #3  
         print('one min until upgrading to level 7 and buying champs until no gold left')
         time.sleep(60)
-        altTab()
+        altTab() 
         buyXP2()
         altTab()
-        time.sleep(180)#3
+        time.sleep(120)#3
         print('1 min left')
-        time.sleep(60)#1
-        altTab()
+        time.sleep(60)#1x
         x = 3
         while x < 5:
-            time.sleep(20)
+            time.sleep(30)
+            y = exitGame()
+            if y > 5:
+                break
+            altTab()
+            time.sleep(2)
             x = exitGame()
+            time.sleep(2)
+            if x < 5:
+                altTab()
             #print(x)
         print('recognized game finished!')
-        time.sleep(7)
+        time.sleep(60)
         if reEnter() == 6:
             #print('program is stopping')
             break
 
 def main6():
-    altTab()
+    x = 3
+    while x < 5:
+        time.sleep(3)
+        y = exitGame()
+        if y > 5:
+            break
+        altTab()
+        time.sleep(2)
+        x = exitGame()
+        time.sleep(2)
+        if x < 5:
+            altTab()
+        #print(x)
+    print('recognized game finished!')
 
 #main()
 #main2()
