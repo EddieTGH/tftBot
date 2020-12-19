@@ -193,7 +193,7 @@ def exitGame():
             #print("I proabbly got first or second becaues the game exited by itself lol!")
             #print(datetime.now())
             return 10
-        else:
+        else:   
             return 2
 
 def reEnter():
@@ -273,7 +273,7 @@ def reEnter():
         playAgainX, playAgainY = playAgain
         time.sleep(1)
         pyA.click(playAgainX, playAgainY) 
-        pyA.mouseDown()
+        pyA.mouseDown() 
         pyA.mouseUp()
         #print('playagain button clicked')
         #print(datetime.now())
@@ -476,7 +476,7 @@ def buyXP2():
             re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.9)
             re2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.9)
             if re != None or re2 != None:
-                break
+                return
         
     dragGoodChampsLate()
 
@@ -502,6 +502,10 @@ def buyXP2Early():
             notinGame = False
         else:
             print("lvl 5 not found for first round of champ buying")    
+            re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.9)
+            re2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.9)
+            if re != None or re2 != None:
+                return
     dragGoodChampEarly()
 
 def dragGoodChamp():
@@ -616,7 +620,7 @@ def dragGoodChampsLate():
 def dragGoodChampEarly():
     checking = 0
     rerolls = 0
-    while checking < 6 and rerolls < 6:
+    while checking < 8 and rerolls < 7:
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
         g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
         g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
@@ -909,15 +913,15 @@ def main5():
         altTab()
         buyXP2Early()
         altTab()
-        time.sleep(180) #3  
+        time.sleep(120) #2
         print('one min until upgrading to level 7 and buying champs until no gold left')
         time.sleep(60)
         altTab() 
         buyXP2()
         altTab()
-        time.sleep(120)#3
+        time.sleep(180)#3
         print('1 min left')
-        time.sleep(60)#1x
+        time.sleep(60)#1
         x = 3
         while x < 5:
             time.sleep(30)
@@ -931,6 +935,7 @@ def main5():
             if x < 5:
                 altTab()
             #print(x)
+
         print('recognized game finished!')
         time.sleep(60)
         if reEnter() == 6:
