@@ -280,7 +280,7 @@ def reEnter():
     else:
         #print("Did not find the play again button")
         #print(datetime.now())
-        return
+        return 12
 
     time.sleep(4)
 
@@ -302,7 +302,7 @@ def reEnter():
 
     time.sleep(3)
 
-
+    z = 0
     notinGame = True
     while notinGame:
         pic6 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/Accept2.PNG', confidence = 0.9)
@@ -318,7 +318,12 @@ def reEnter():
         else:
             #print("Did not find the match accepted button. Trying again")
             #print(datetime.now())
-            pass
+            z += 1
+            if z > 80: #should be 80
+                print("the error has been found. fk")
+                restart()
+                getIntoFirstGame()
+                return 12
 
         time.sleep(5)
         #Check if I am in the match
@@ -620,7 +625,7 @@ def dragGoodChampsLate():
 def dragGoodChampEarly():
     checking = 0
     rerolls = 0
-    while checking < 8 and rerolls < 7:
+    while checking < 10 and rerolls < 8:
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
         g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
         g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
@@ -732,6 +737,35 @@ def dragChamp2():
     time.sleep(0.5)
     pyA.mouseUp()
     time.sleep(1) '''
+
+def restart():
+    X = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/leagueExit.PNG', confidence = 0.7)
+    if X != None: 
+        X = pyA.center(X)
+        XX, XY = X
+        time.sleep(1)
+        pyA.click(XX, XY)
+        pyA.mouseDown()
+        pyA.mouseUp() 
+    time.sleep(3)
+    X2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/leagueExit2.PNG', confidence = 0.7)
+    if X2 != None: 
+        X2 = pyA.center(X2)
+        X2X, X2Y = X2
+        time.sleep(1)
+        pyA.click(X2X, X2Y)
+        pyA.mouseDown()
+        pyA.mouseUp() 
+    time.sleep(240) #should be 240
+    league = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/leagueIcon.PNG', confidence = 0.7)
+    if league != None: 
+        league = pyA.center(league)
+        leagueX, leagueY = league
+        time.sleep(1)
+        pyA.click(leagueX, leagueY)
+        pyA.mouseDown()
+        pyA.mouseUp() 
+    time.sleep(60)
 
 
 def inGame():
@@ -904,7 +938,7 @@ def main5():
     getIntoFirstGame()
     keepGoing = True
     while keepGoing:
-        time.sleep(10)
+        time.sleep(10) 
         loadingScreen()
         altTab()
         time.sleep(480) #8
@@ -913,18 +947,18 @@ def main5():
         altTab()
         buyXP2Early()
         altTab()
-        time.sleep(120) #2
+        time.sleep(180) #3
         print('one min until upgrading to level 7 and buying champs until no gold left')
         time.sleep(60)
         altTab() 
         buyXP2()
         altTab()
-        time.sleep(180)#3
+        time.sleep(120)#2
         print('1 min left')
-        time.sleep(60)#1
+        time.sleep(60)#1 
         x = 3
         while x < 5:
-            time.sleep(30)
+            time.sleep(30)  
             y = exitGame()
             if y > 5:
                 break
@@ -937,26 +971,12 @@ def main5():
             #print(x)
 
         print('recognized game finished!')
-        time.sleep(60)
         if reEnter() == 6:
             #print('program is stopping')
             break
 
 def main6():
-    x = 3
-    while x < 5:
-        time.sleep(3)
-        y = exitGame()
-        if y > 5:
-            break
-        altTab()
-        time.sleep(2)
-        x = exitGame()
-        time.sleep(2)
-        if x < 5:
-            altTab()
-        #print(x)
-    print('recognized game finished!')
+    reEnter()
 
 #main()
 #main2()
