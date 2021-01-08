@@ -625,7 +625,7 @@ def dragGoodChampsLate():
 def dragGoodChampEarly():
     checking = 0
     rerolls = 0
-    while checking < 10 and rerolls < 8:
+    while checking < 10 and rerolls < 12:
         re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
         g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
         g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
@@ -753,7 +753,7 @@ def restart():
         X2 = pyA.center(X2)
         X2X, X2Y = X2
         time.sleep(1)
-        pyA.click(X2X, X2Y)
+        pyA.click(X2X, X2Y) 
         pyA.mouseDown()
         pyA.mouseUp() 
     time.sleep(240) #should be 240
@@ -965,8 +965,9 @@ def main5():
             altTab()
             time.sleep(2)
             x = exitGame()
-            time.sleep(2)
-            if x < 5:
+            time.sleep(2)   
+            
+            if x < 5: 
                 altTab()
             #print(x)
 
@@ -974,7 +975,7 @@ def main5():
         if reEnter() == 6:
             #print('program is stopping')
             break
-
+ 
 def main6():
     reEnter()
 
