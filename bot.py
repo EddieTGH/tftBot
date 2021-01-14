@@ -1006,7 +1006,7 @@ def tftAFK():
             #print('program is stopping')
             break
  
-def clickAndComment():
+def clickAndComment(): #this is for the good computer
     #https://www.youtube.com/channel/UCDGbZXoJZ0nrDtZPW5aGEPg/videos this is the link to click
     # full screen, scrolled all the way up, 100 percent zoom, bookmarks on
     time.sleep(2)
