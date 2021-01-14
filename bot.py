@@ -1012,10 +1012,10 @@ def clickAndComment():
     time.sleep(2)
     loop = True
     while loop:
-        newVid = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/noVideo.PNG', confidence = 0.75)
+        newVid = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/noVideo2.PNG', confidence = 0.75)
         if newVid != None:
             pyA.hotkey('ctrl', 'r') 
-            time.sleep(3)
+            time.sleep(5)
         else:
             pyA.click(532, 713)
             pyA.click(532, 713)
