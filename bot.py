@@ -934,7 +934,7 @@ def main4():
     
 #load in, 6 mins after load in buy first round of champs (max of 3 refreshes) ---- after another 6 minutes upgrade to level 7 if not already 
 #and spend rest of money buying champions --- after another 6 minutes check to exit the game 
-def main5(): 
+def tftWinner(): 
     getIntoFirstGame()
     keepGoing = True
     while keepGoing:
@@ -976,11 +976,85 @@ def main5():
             #print('program is stopping')
             break
  
-def main6():
-    reEnter()
+def tftAFK(): 
+    getIntoFirstGame()
+    keepGoing = True
+    while keepGoing:
+        time.sleep(10) 
+        loadingScreen()
+        altTab()
+        time.sleep(480) #8
+        print('one min until buying champs at level 5 maxreroll 3 times')
+        time.sleep(60) #1
+        x = 3
+        while x < 5:
+            time.sleep(30)  
+            y = exitGame()
+            if y > 5:
+                break
+            altTab()
+            time.sleep(2)
+            x = exitGame()
+            time.sleep(2)   
+            
+            if x < 5: 
+                altTab()
+            #print(x)
+
+        print('recognized game finished!')
+        if reEnter() == 6:
+            #print('program is stopping')
+            break
+ 
+def clickAndComment():
+    #https://www.youtube.com/channel/UCDGbZXoJZ0nrDtZPW5aGEPg/videos this is the link to click
+    # full screen, scrolled all the way up, 100 percent zoom, bookmarks on
+    time.sleep(2)
+    loop = True
+    while loop:
+        newVid = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/noVideo.PNG', confidence = 0.75)
+        if newVid == None:
+            pyA.hotkey('ctrl', 'r') 
+            time.sleep(3)
+        else:
+            pyA.click(532, 713)
+            pyA.click(532, 713)
+            time.sleep(3)
+            pyA.moveTo(1913,193)
+            pyA.dragTo(1913, 493, 1, button='left') 
+            time.sleep(3)
+            commentBox = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentBox.PNG', confidence = 0.75)
+            if commentBox != None:
+                pic3 = pyA.center(commentBox)
+                pic3X, pic3Y = pic3
+                time.sleep(1)
+                pyA.click(pic3X, pic3Y)
+                pyA.mouseDown()
+                pyA.mouseUp() 
+            pyA.typewrite("hey skillcapped. love your vids") #omg hello. am i first?
+            commentSub = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentSubmit.PNG', confidence = 0.75)
+            if commentSub != None:
+                pic3 = pyA.center(commentSub)
+                pic3X, pic3Y = pic3
+                time.sleep(1)
+                pyA.click(pic3X, pic3Y)
+                pyA.mouseDown()
+                pyA.mouseUp() 
+                time.sleep(2)
+                loop = False
+        
+
+
+
+def getpos():
+    time.sleep(2)
+    print(pyA.position())
+
+#getpos()
+clickAndComment()
 
 #main()
 #main2()
-#main3()
-main5()
-#main6()
+#main3() 
+#tftWinner()
+#tftAFK()
