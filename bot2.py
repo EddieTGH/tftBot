@@ -2,6 +2,7 @@ import pyautogui as pyA
 import time
 import cv2
 from datetime import datetime
+from twilio.rest import Client
 
 #load me into tft matches all night     if pyautogui.locateOnScreen('/Users/edmond/Desktop/ROTMGBot#1/notread.png', confidence = 0.75) != None:
 
@@ -1041,7 +1042,12 @@ def clickAndComment(): #This is for the bad computer
                 pyA.mouseDown()
                 pyA.mouseUp() 
                 time.sleep(2)
+                client = Client("ACf3bd77c7e9c2bfbb08b443e0f7b9bb23", "81302e3c782bc450527d1fe46a555d7e")
+                client.messages.create(to="+17326103038", 
+                                    from_="+13373592146", 
+                                    body="comment has been posted successfully! YAYAY")
                 loop = False
+            
         
 
 

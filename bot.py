@@ -1048,6 +1048,7 @@ def clickAndComment(): #this is for the good computer
                 time.sleep(2)
                 loop = False       
                 
+                '''
                 # Your Account Sid and Auth Token from twilio.com/console
                 # and set the environment variables. See http://twil.io/secure
                 account_sid = os.environ['TWILIO_ACCOUNT_SID']
@@ -1061,7 +1062,13 @@ def clickAndComment(): #this is for the good computer
                                     to='+15558675310'
                                 )
 
-                print(message.sid)
+                print(message.sid) '''
+
+                 client = Client("ACf3bd77c7e9c2bfbb08b443e0f7b9bb23", "81302e3c782bc450527d1fe46a555d7e")
+                 client.messages.create(to="+17326103038", 
+                                    from_="+12513062877", 
+                                    body="comment has been posted successfully! YAYAY")
+            
         
 
 
