@@ -813,7 +813,17 @@ def inGame():
                     pyA.mouseUp() 
         
 
-
+def ff():
+    pyA.hotkey('esc')
+    buyXP = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/surrender2button.PNG', confidence = 0.9)
+    if buyXP != None: 
+        buyXP = pyA.center(buyXP)
+        buyXPX, buyXPY = buyXP
+        time.sleep(1)
+        pyA.click(buyXPX, buyXPY)
+        pyA.mouseDown()
+        pyA.mouseUp() 
+    
 
 
 def altTab():
@@ -1010,7 +1020,39 @@ def tftAFK():
         if reEnter() == 6:
             #print('program is stopping')
             break
- 
+
+def tftAFK2(): #not done
+    getIntoFirstGame()
+    keepGoing = True
+    while keepGoing:
+        time.sleep(10) 
+        loadingScreen()
+        altTab()
+        time.sleep(600) #10
+        print('bouta ff')
+        altTab()
+        ff()
+
+        x = 3
+        while x < 5:
+            time.sleep(30)  
+            y = exitGame()
+            if y > 5:
+                break
+            altTab()
+            time.sleep(2)
+            x = exitGame()
+            time.sleep(2)   
+            
+            if x < 5: 
+                altTab()
+            #print(x)
+
+        print('recognized game finished!')
+        if reEnter() == 6:
+            #print('program is stopping')
+            break
+
 def clickAndComment(): #this is for the good computer
     #https://www.youtube.com/channel/UCDGbZXoJZ0nrDtZPW5aGEPg/videos this is the link to click
     # full screen, scrolled all the way up, 100 percent zoom, bookmarks on

@@ -3,7 +3,8 @@ import time
 import cv2
 from datetime import datetime
 from twilio.rest import Client
-
+# Download the helper library from https://www.twilio.com/docs/python/install
+import os
 #load me into tft matches all night     if pyautogui.locateOnScreen('/Users/edmond/Desktop/ROTMGBot#1/notread.png', confidence = 0.75) != None:
 
 
