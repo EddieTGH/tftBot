@@ -1017,17 +1017,17 @@ def clickAndComment(): #this is for the good computer
     time.sleep(2)
     loop = True
     while loop:
-        newVid = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/noVideo2.PNG', confidence = 0.75)
-        if newVid != None:
+        newVid = pyA.locateOnScreen('/Users/edmon/Documents/Github/tftBot/goodVideo2.PNG', confidence = 0.75)
+        if newVid != None: #!=
             pyA.hotkey('ctrl', 'r') 
-            time.sleep(5)
+            time.sleep(600) #5-10 seconds
         else:
             pyA.click(532, 713)
             pyA.click(532, 713)
-            time.sleep(3)
+            time.sleep(5)
             pyA.moveTo(1913,193)
             pyA.dragTo(1913, 493, 1, button='left') 
-            time.sleep(3)
+            time.sleep(5)
             commentBox = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentBox.PNG', confidence = 0.75)
             if commentBox != None:
                 pic3 = pyA.center(commentBox)
@@ -1036,7 +1036,7 @@ def clickAndComment(): #this is for the good computer
                 pyA.click(pic3X, pic3Y)
                 pyA.mouseDown()
                 pyA.mouseUp() 
-            pyA.typewrite("hey skillcapped. love your vids") #omg hello. am i first?
+            pyA.typewrite("hey. love your vids") #omg hello. am i first?
             commentSub = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentSubmit.PNG', confidence = 0.75)
             if commentSub != None:
                 pic3 = pyA.center(commentSub)
@@ -1046,28 +1046,11 @@ def clickAndComment(): #this is for the good computer
                 pyA.mouseDown()
                 pyA.mouseUp() 
                 time.sleep(2)
-                loop = False       
-                
-                '''
-                # Your Account Sid and Auth Token from twilio.com/console
-                # and set the environment variables. See http://twil.io/secure
-                account_sid = os.environ['TWILIO_ACCOUNT_SID']
-                auth_token = os.environ['TWILIO_AUTH_TOKEN']
-                client = Client(account_sid, auth_token)
-
-                message = client.messages \
-                                .create(
-                                    body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                                    from_='+15017122661',
-                                    to='+15558675310'
-                                )
-
-                print(message.sid) '''
-
-                 client = Client("ACf3bd77c7e9c2bfbb08b443e0f7b9bb23", "81302e3c782bc450527d1fe46a555d7e")
-                 client.messages.create(to="+17326103038", 
-                                    from_="+12513062877", 
+                client = Client("ACf3bd77c7e9c2bfbb08b443e0f7b9bb23", "81302e3c782bc450527d1fe46a555d7e")
+                client.messages.create(to="+17326103038", 
+                                    from_="+13373592146", 
                                     body="comment has been posted successfully! YAYAY")
+                loop = False
             
         
 

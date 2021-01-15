@@ -1013,17 +1013,17 @@ def clickAndComment(): #This is for the bad computer
     time.sleep(2)
     loop = True
     while loop:
-        newVid = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/video2.PNG', confidence = 0.75)
+        newVid = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/badvideo2.PNG', confidence = 0.75)
         if newVid != None: #!=
             pyA.hotkey('ctrl', 'r') 
             time.sleep(600) #5-10 seconds
         else:
             pyA.click(532, 913)
             pyA.click(532, 913)
-            time.sleep(3)
+            time.sleep(5)
             pyA.moveTo(1913,193)
             pyA.dragTo(1913, 493, 1, button='left') 
-            time.sleep(3)
+            time.sleep(5)
             commentBox = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/commentBox2.PNG', confidence = 0.55)
             if commentBox != None:
                 pic3 = pyA.center(commentBox)
