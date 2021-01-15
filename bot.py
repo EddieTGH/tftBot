@@ -2,6 +2,11 @@ import pyautogui as pyA
 import time
 import cv2
 from datetime import datetime
+# Download the helper library from https://www.twilio.com/docs/python/install
+import os
+from twilio.rest import Client
+
+
 
 #load me into tft matches all night     if pyautogui.locateOnScreen('/Users/edmond/Desktop/ROTMGBot#1/notread.png', confidence = 0.75) != None:
 
@@ -1041,7 +1046,22 @@ def clickAndComment(): #this is for the good computer
                 pyA.mouseDown()
                 pyA.mouseUp() 
                 time.sleep(2)
-                loop = False
+                loop = False       
+                
+                # Your Account Sid and Auth Token from twilio.com/console
+                # and set the environment variables. See http://twil.io/secure
+                account_sid = os.environ['TWILIO_ACCOUNT_SID']
+                auth_token = os.environ['TWILIO_AUTH_TOKEN']
+                client = Client(account_sid, auth_token)
+
+                message = client.messages \
+                                .create(
+                                    body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+                                    from_='+15017122661',
+                                    to='+15558675310'
+                                )
+
+                print(message.sid)
         
 
 
