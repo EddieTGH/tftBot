@@ -1012,10 +1012,10 @@ def clickAndComment(): #This is for the bad computer
     time.sleep(2)
     loop = True
     while loop:
-        newVid = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/noVideo2.PNG', confidence = 0.75)
-        if newVid != None:
+        newVid = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/video2.PNG', confidence = 0.75)
+        if newVid != None: #!=
             pyA.hotkey('ctrl', 'r') 
-            time.sleep(5)
+            time.sleep(600) #5-10 seconds
         else:
             pyA.click(532, 913)
             pyA.click(532, 913)
@@ -1031,7 +1031,7 @@ def clickAndComment(): #This is for the bad computer
                 pyA.click(pic3X, pic3Y)
                 pyA.mouseDown()
                 pyA.mouseUp() 
-            pyA.typewrite("now i know how to use tp") #omg hello. am i first?
+            pyA.typewrite("love this vid") #omg hello. am i first?
             commentSub = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/commentSubmit2.PNG', confidence = 0.75)
             if commentSub != None:
                 pic3 = pyA.center(commentSub)
