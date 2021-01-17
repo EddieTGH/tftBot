@@ -1044,17 +1044,17 @@ def clickAndComment(): #this is for the good computer
     time.sleep(2)
     loop = True
     while loop:
-        newVid = pyA.locateOnScreen('/Users/edmon/Documents/Github/tftBot/goodVideo2.PNG', confidence = 0.75)
+        newVid = pyA.locateOnScreen('/Users/edmon/Documents/Github/tftBot/video3.PNG')
         if newVid != None: #!=
             pyA.hotkey('ctrl', 'r') 
-            time.sleep(600) #5-10 seconds
+            time.sleep(4) #5-10 seconds
         else:
             pyA.click(532, 713)
             pyA.click(532, 713)
-            time.sleep(5)
+            time.sleep(4)
             pyA.moveTo(1913,193)
             pyA.dragTo(1913, 493, 1, button='left') 
-            time.sleep(5)
+            time.sleep(4)
             commentBox = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentBox.PNG', confidence = 0.75)
             if commentBox != None:
                 pic3 = pyA.center(commentBox)
@@ -1063,7 +1063,7 @@ def clickAndComment(): #this is for the good computer
                 pyA.click(pic3X, pic3Y)
                 pyA.mouseDown()
                 pyA.mouseUp() 
-            pyA.typewrite("hey. love your vids") #omg hello. am i first?
+            pyA.typewrite("my favorite is the ashe leona") #omg hello. am i first?
             commentSub = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentSubmit.PNG', confidence = 0.75)
             if commentSub != None:
                 pic3 = pyA.center(commentSub)
@@ -1088,9 +1088,9 @@ def getpos():
     print(pyA.position())
 
 #getpos()
-#clickAndComment()
+clickAndComment()
 #tftAFK2()
-ff()
+#ff()
 
 #main()
 #main2()
