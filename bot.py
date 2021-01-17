@@ -815,7 +815,8 @@ def inGame():
 
 def ff():
     pyA.hotkey('esc')
-    buyXP = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/surrender2button.PNG', confidence = 0.9)
+    pyA.hotkey('esc')
+    buyXP = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/surrenderButton.PNG', confidence = 0.9)
     if buyXP != None: 
         buyXP = pyA.center(buyXP)
         buyXPX, buyXPY = buyXP
@@ -1032,23 +1033,7 @@ def tftAFK2(): #not done
         print('bouta ff')
         altTab()
         ff()
-
-        x = 3
-        while x < 5:
-            time.sleep(30)  
-            y = exitGame()
-            if y > 5:
-                break
-            altTab()
-            time.sleep(2)
-            x = exitGame()
-            time.sleep(2)   
-            
-            if x < 5: 
-                altTab()
-            #print(x)
-
-        print('recognized game finished!')
+        time.sleep(10)
         if reEnter() == 6:
             #print('program is stopping')
             break
@@ -1103,7 +1088,9 @@ def getpos():
     print(pyA.position())
 
 #getpos()
-clickAndComment()
+#clickAndComment()
+#tftAFK2()
+ff()
 
 #main()
 #main2()
