@@ -1033,7 +1033,7 @@ def clickAndComment(): #This is for the bad computer
                 pyA.click(pic3X, pic3Y)
                 pyA.mouseDown()
                 pyA.mouseUp() 
-            pyA.typewrite("love this vid") #omg hello. am i first?
+            pyA.typewrite("hi hi hi hi hi") #omg hello. am i first?
             commentSub = pyA.locateOnScreen('/Users/jniu1/OneDrive/Documents/GitHub/tftBot/commentSubmit2.PNG', confidence = 0.75)
             if commentSub != None:
                 pic3 = pyA.center(commentSub)
