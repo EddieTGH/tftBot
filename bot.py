@@ -1063,7 +1063,7 @@ def clickAndComment(): #this is for the good computer
                 pyA.click(pic3X, pic3Y)
                 pyA.mouseDown()
                 pyA.mouseUp() 
-            pyA.typewrite("my favorite is the ashe leona") #omg hello. am i first?
+            pyA.typewrite("omg hello. am i first?") #omg hello. am i first?
             commentSub = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/commentSubmit.PNG', confidence = 0.75)
             if commentSub != None:
                 pic3 = pyA.center(commentSub)
