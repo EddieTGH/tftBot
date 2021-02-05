@@ -1058,10 +1058,10 @@ def getpos():
     print(pyA.position())
 
 #getpos()
-clickAndComment()
+#clickAndComment()
 
 #main()
 #main2()
 #main3() 
-#tftWinner()
+tftWinner()
 #tftAFK()
