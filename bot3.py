@@ -937,11 +937,11 @@ def main4():
 #load in, 6 mins after load in buy first round of champs (max of 3 refreshes) ---- after another 6 minutes upgrade to level 7 if not already 
 #and spend rest of money buying champions --- after another 6 minutes check to exit the game 
 def tftWinner(): 
-    getIntoFirstGame() #Matt
+    getIntoFirstGame()
     keepGoing = True
     while keepGoing:
         time.sleep(10) 
-        loadingScreen() #Matt
+        loadingScreen()
         altTab()
         time.sleep(480) #8
         print('one min until buying champs at level 5 maxreroll 3 times')
@@ -961,7 +961,7 @@ def tftWinner():
         x = 3
         while x < 5:
             time.sleep(30)  
-            y = exitGame() #Matt
+            y = exitGame()
             if y > 5:
                 break
             altTab()
@@ -974,7 +974,7 @@ def tftWinner():
             #print(x)
 
         print('recognized game finished!')
-        if reEnter() == 6: #Matt
+        if reEnter() == 6:
             #print('program is stopping')
             break
  
