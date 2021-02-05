@@ -12,7 +12,7 @@ import os
 def getIntoFirstGame():
     time.sleep(3)
 
-    pic1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/TFTtab2.png', confidence = 0.75)
+    pic1 = pyA.locateOnScreen('images/TFTtab2.png', confidence = 0.75)
     if pic1 != None:
         #print("Pic found!")
         pic1 = pyA.center(pic1)
@@ -27,8 +27,8 @@ def getIntoFirstGame():
 
     time.sleep(3)
 
-    pic2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playbutton.PNG', confidence = 0.75)
-    pic22 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/partybutton.PNG', confidence = 0.75)
+    pic2 = pyA.locateOnScreen('images/playbutton.PNG', confidence = 0.75)
+    pic22 = pyA.locateOnScreen('images/partybutton.PNG', confidence = 0.75)
     if pic2 != None:
        #print("Pic found!")
         pic2 = pyA.center(pic2)
@@ -52,7 +52,7 @@ def getIntoFirstGame():
     time.sleep(3)
 
 
-    pic3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/teamfighttab.PNG', confidence = 0.75)
+    pic3 = pyA.locateOnScreen('images/teamfighttab.PNG', confidence = 0.75)
     if pic3 != None:
        #print("Pic found!")
         pic3 = pyA.center(pic3)
@@ -67,7 +67,7 @@ def getIntoFirstGame():
 
     time.sleep(3)
 
-    pic4 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/confirmbutton.PNG', confidence = 0.75)
+    pic4 = pyA.locateOnScreen('images/confirmbutton.PNG', confidence = 0.75)
     if pic4 != None:
         #print("Pic found!")
         pic4 = pyA.center(pic4)
@@ -83,7 +83,7 @@ def getIntoFirstGame():
     time.sleep(4)
 
 
-    pic5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/findMatchbutton.PNG', confidence = 0.75)
+    pic5 = pyA.locateOnScreen('images/findMatchbutton.PNG', confidence = 0.75)
     if pic5 != None:
         #print("Pic found!")
         pic5 = pyA.center(pic5)
@@ -101,7 +101,7 @@ def getIntoFirstGame():
 
     notinGame = True
     while notinGame:
-        pic6 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/Accept2.PNG', confidence = 0.9)
+        pic6 = pyA.locateOnScreen('images/Accept2.PNG', confidence = 0.9)
         if pic6 != None:
             #print("Pic found!")
             pic6 = pyA.center(pic6)
@@ -115,7 +115,7 @@ def getIntoFirstGame():
             #print("Did not find the match accepted button. Trying again")
         time.sleep(5)
         #Check if I am in the match
-        if (pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/TFTTab2.PNG', confidence = 0.75)) == None:
+        if (pyA.locateOnScreen('images/TFTTab2.PNG', confidence = 0.75)) == None:
             notinGame = False
             #print("i am now in game")
 
@@ -127,7 +127,7 @@ def getIntoFirstGame():
 def surrender():
     time.sleep(3)
     pyA.hotkey('esc')
-    s1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/surrenderButton.PNG', confidence = 0.75)
+    s1 = pyA.locateOnScreen('images/surrenderButton.PNG', confidence = 0.75)
     if s1 != None:
         print("Pic found!")
         s1 = pyA.center(s1)
@@ -145,7 +145,7 @@ def surrender():
     time.sleep(3)
 
 
-    s2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/surrender2Button.PNG', confidence = 0.75)
+    s2 = pyA.locateOnScreen('images/surrender2Button.PNG', confidence = 0.75)
     if s2 != None:
         print("Pic found!")
         s2 = pyA.center(s2)
@@ -164,7 +164,7 @@ def surrender():
 
 def exitGame():
     time.sleep(3)
-    ex = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.75)
+    ex = pyA.locateOnScreen('images/exitButton.PNG', confidence = 0.75)
     if ex != None:
         #print("Pic found!")
         ex = pyA.center(ex)
@@ -183,15 +183,15 @@ def exitGame():
     else:
         #print("Did not find the exit button")
         #print(datetime.now())
-        if pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/gameIsOver.PNG') != None:
+        if pyA.locateOnScreen('images/gameIsOver.PNG') != None:
             #print("I proabbly got first becaues the game exited by itself lol!")
             #print(datetime.now())
             return 10
-        elif pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG') != None:
+        elif pyA.locateOnScreen('images/okButt.PNG') != None:
             #print("I proabbly got first becaues the game exited by itself lol!")
             #print(datetime.now())
             return 10
-        elif pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG') != None:
+        elif pyA.locateOnScreen('images/playagainbutton.PNG') != None:
             #print("I proabbly got first or second becaues the game exited by itself lol!")
             #print(datetime.now())
             return 10
@@ -200,7 +200,7 @@ def exitGame():
 
 def reEnter():
 
-    okButton = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG', confidence = 0.75)
+    okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
         okButtonX, okButtonY = okButton
@@ -213,7 +213,7 @@ def reEnter():
 
     time.sleep(3)
 
-    okButton = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG', confidence = 0.75)
+    okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
         okButtonX, okButtonY = okButton
@@ -228,7 +228,7 @@ def reEnter():
 
     
 
-    okButton = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG', confidence = 0.75)
+    okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
         okButtonX, okButtonY = okButton
@@ -241,7 +241,7 @@ def reEnter():
     
     time.sleep(3)
 
-    okButton = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG', confidence = 0.75)
+    okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
         okButtonX, okButtonY = okButton
@@ -254,7 +254,7 @@ def reEnter():
         
     time.sleep(3)
 
-    okButton = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/okButt.PNG', confidence = 0.75)
+    okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
         okButtonX, okButtonY = okButton
@@ -268,7 +268,7 @@ def reEnter():
     time.sleep(4)
 
 
-    playAgain = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.75)
+    playAgain = pyA.locateOnScreen('images/playagainbutton.PNG', confidence = 0.75)
     if playAgain != None:
         #print("Pic found!")
         playAgain = pyA.center(playAgain)
@@ -287,7 +287,7 @@ def reEnter():
     time.sleep(4)
 
     
-    pic5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/findMatchbutton.PNG', confidence = 0.75)
+    pic5 = pyA.locateOnScreen('images/findMatchbutton.PNG', confidence = 0.75)
     if pic5 != None:
         pic5 = pyA.center(pic5)
         pic5X, pic5Y = pic5
@@ -307,7 +307,7 @@ def reEnter():
     z = 0
     notinGame = True
     while notinGame:
-        pic6 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/Accept2.PNG', confidence = 0.9)
+        pic6 = pyA.locateOnScreen('images/Accept2.PNG', confidence = 0.9)
         if pic6 != None:
             pic6 = pyA.center(pic6)
             pic6X, pic6Y = pic6
@@ -329,7 +329,7 @@ def reEnter():
 
         time.sleep(5)
         #Check if I am in the match
-        if (pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/TFTTab2.PNG', confidence = 0.75)) == None:
+        if (pyA.locateOnScreen('images/TFTTab2.PNG', confidence = 0.75)) == None:
             notinGame = False
             #print("i am now in game")
             #print(datetime.now())
@@ -351,7 +351,7 @@ def loadingScreen():
     notinGame = True
     while notinGame:
         time.sleep(30)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/loadingIN.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/loadingIN.PNG', confidence = 0.9)
         if re == None:
             #print('match has finished loading and I am now in planning phase')
             #print(datetime.now())
@@ -366,7 +366,7 @@ def placeDownChamps():
     notinGame = True
     while notinGame:
         time.sleep(6)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/refresh.PNG', confidence = 0.9)
         if re != None:
             print('match has finished loading and I am now in planning phase')
             print(datetime.now())
@@ -382,7 +382,7 @@ def placeDownChamps2():
     notinGame = True
     while notinGame:
         time.sleep(6)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/refresh.PNG', confidence = 0.9)
         if re != None:
             print('match has finished loading and I am now in planning phase')
             print(datetime.now())
@@ -399,7 +399,7 @@ def buyXP():
     notinGame = True
     while notinGame:
         time.sleep(6)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/buyXP.PNG', confidence = 0.9)
         if re != None:
             dragChamp2()
             re = pyA.center(re)
@@ -424,8 +424,8 @@ def buyXP22(): #Work in progress
     notinGame = True
     while notinGame:
         time.sleep(6)
-        lvl3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl3.PNG', confidence = 0.9)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
+        lvl3 = pyA.locateOnScreen('images/lvl3.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/buyXP.PNG', confidence = 0.9)
         if lvl3 != None:
             re = pyA.center(re)
             reX, reY = re
@@ -439,7 +439,7 @@ def buyXP22(): #Work in progress
                 time.sleep(0.2)
                 pyA.mouseUp()
                 if (x % 3 == 0):
-                    lvl7 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl7.PNG', confidence = 0.9)
+                    lvl7 = pyA.locateOnScreen('images/lvl7.PNG', confidence = 0.9)
                     if lvl7 != None:
                         x = 100
                 x+=1
@@ -456,8 +456,8 @@ def buyXP2():
     notinGame = True
     while notinGame:
         time.sleep(10)
-        #lvl5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl5.PNG', confidence = 0.9)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
+        #lvl5 = pyA.locateOnScreen('images/lvl5.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/buyXP.PNG', confidence = 0.9)
         if re != None:
             re = pyA.center(re)
             reX, reY = re
@@ -471,7 +471,7 @@ def buyXP2():
                 time.sleep(0.2)
                 pyA.mouseUp()
                 if (x % 2 == 0):
-                    lvl7 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl7.PNG', confidence = 0.9)
+                    lvl7 = pyA.locateOnScreen('images/lvl7.PNG', confidence = 0.9)
                     if lvl7 != None:
                         x = 100
                 x+=1
@@ -480,8 +480,8 @@ def buyXP2():
             notinGame = False
         else:
             #print("xp not found (planning phase not found)")    
-            re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.9)
-            re2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.9)
+            re = pyA.locateOnScreen('images/exitButton.PNG', confidence = 0.9)
+            re2 = pyA.locateOnScreen('images/playagainbutton.PNG', confidence = 0.9)
             if re != None or re2 != None:
                 return
         
@@ -491,8 +491,8 @@ def buyXP2Early():
     notinGame = True
     while notinGame:
         time.sleep(10)
-        lvl5 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/lvl5.PNG', confidence = 0.9)
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
+        lvl5 = pyA.locateOnScreen('images/lvl5.PNG', confidence = 0.9)
+        re = pyA.locateOnScreen('images/buyXP.PNG', confidence = 0.9)
         if lvl5 != None and re != None:
             re = pyA.center(re)
             reX, reY = re
@@ -509,8 +509,8 @@ def buyXP2Early():
             notinGame = False
         else:
             print("lvl 5 not found for first round of champ buying")    
-            re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/exitButton.PNG', confidence = 0.9)
-            re2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/playagainbutton.PNG', confidence = 0.9)
+            re = pyA.locateOnScreen('images/exitButton.PNG', confidence = 0.9)
+            re2 = pyA.locateOnScreen('images/playagainbutton.PNG', confidence = 0.9)
             if re != None or re2 != None:
                 return
     dragGoodChampEarly()
@@ -519,11 +519,11 @@ def dragGoodChamp():
     champs = 0
     checking = True
     while checking and champs < 10:
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
-        g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
-        g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
-        g3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/5champ.PNG', confidence = 0.8)
-        g4 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/9champ.PNG', confidence = 0.8)
+        re = pyA.locateOnScreen('images/refresh.PNG', confidence = 0.9)
+        g1 = pyA.locateOnScreen('images/4Champ.PNG', confidence = 0.9)
+        g2 = pyA.locateOnScreen('images/bigChamp.PNG', confidence = 0.8)
+        g3 = pyA.locateOnScreen('images/5champ.PNG', confidence = 0.8)
+        g4 = pyA.locateOnScreen('images/9champ.PNG', confidence = 0.8)
         if g4 != None:
             g4 = pyA.center(g4)
             g4X, g4Y = g4
@@ -575,11 +575,11 @@ def dragGoodChampsLate():
     checking = 0 
     rerolls = 0
     while checking < 18:
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
-        g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
-        g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
-        g3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/5champ.PNG', confidence = 0.8)
-        g4 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/9champ.PNG', confidence = 0.8)
+        re = pyA.locateOnScreen('images/refresh.PNG', confidence = 0.9)
+        g1 = pyA.locateOnScreen('images/4Champ.PNG', confidence = 0.9)
+        g2 = pyA.locateOnScreen('images/bigChamp.PNG', confidence = 0.8)
+        g3 = pyA.locateOnScreen('images/5champ.PNG', confidence = 0.8)
+        g4 = pyA.locateOnScreen('images/9champ.PNG', confidence = 0.8)
         if g4 != None:
             g4 = pyA.center(g4)
             g4X, g4Y = g4
@@ -628,11 +628,11 @@ def dragGoodChampEarly():
     checking = 0
     rerolls = 0
     while checking < 10 and rerolls < 12:
-        re = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
-        g1 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/4Champ.PNG', confidence = 0.9)
-        g2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/bigChamp.PNG', confidence = 0.8)
-        g3 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/5champ.PNG', confidence = 0.8)
-        g4 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/9champ.PNG', confidence = 0.8)
+        re = pyA.locateOnScreen('images/refresh.PNG', confidence = 0.9)
+        g1 = pyA.locateOnScreen('images/4Champ.PNG', confidence = 0.9)
+        g2 = pyA.locateOnScreen('images/bigChamp.PNG', confidence = 0.8)
+        g3 = pyA.locateOnScreen('images/5champ.PNG', confidence = 0.8)
+        g4 = pyA.locateOnScreen('images/9champ.PNG', confidence = 0.8)
         if g4 != None:
             g4 = pyA.center(g4)
             g4X, g4Y = g4
@@ -741,7 +741,7 @@ def dragChamp2():
     time.sleep(1) '''
 
 def restart():
-    X = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/leagueExit.PNG', confidence = 0.7)
+    X = pyA.locateOnScreen('images/leagueExit.PNG', confidence = 0.7)
     if X != None: 
         X = pyA.center(X)
         XX, XY = X
@@ -750,7 +750,7 @@ def restart():
         pyA.mouseDown()
         pyA.mouseUp() 
     time.sleep(3)
-    X2 = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/leagueExit2.PNG', confidence = 0.7)
+    X2 = pyA.locateOnScreen('images/leagueExit2.PNG', confidence = 0.7)
     if X2 != None: 
         X2 = pyA.center(X2)
         X2X, X2Y = X2
@@ -759,7 +759,7 @@ def restart():
         pyA.mouseDown()
         pyA.mouseUp() 
     time.sleep(240) #should be 240
-    league = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/leagueIcon.PNG', confidence = 0.7)
+    league = pyA.locateOnScreen('images/leagueIcon.PNG', confidence = 0.7)
     if league != None: 
         league = pyA.center(league)
         leagueX, leagueY = league
@@ -773,10 +773,10 @@ def restart():
 def inGame():
     inGame = True
     while inGame:
-        planning = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/planningphase2.PNG', confidence = 0.7)
+        planning = pyA.locateOnScreen('images/planningphase2.PNG', confidence = 0.7)
         if planning != None:
-            cultist = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/cultist.PNG', confidence = 0.7)
-            keeper = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/keeper.PNG', confidence = 0.7)
+            cultist = pyA.locateOnScreen('images/cultist.PNG', confidence = 0.7)
+            keeper = pyA.locateOnScreen('images/keeper.PNG', confidence = 0.7)
             if cultist != None: 
                 cultist = pyA.center(cultist)
                 cultistX, cultistY = cultist
@@ -792,7 +792,7 @@ def inGame():
                 pyA.mouseDown()
                 pyA.mouseUp() 
             else: 
-                buyXP = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/buyXP.PNG', confidence = 0.9)
+                buyXP = pyA.locateOnScreen('images/buyXP.PNG', confidence = 0.9)
                 if buyXP != None: 
                     buyXP = pyA.center(buyXP)
                     buyXPX, buyXPY = buyXP
@@ -800,7 +800,7 @@ def inGame():
                     pyA.click(buyXPX, buyXPY)
                     pyA.mouseDown()
                     pyA.mouseUp() 
-                refresh = pyA.locateOnScreen('/Users/edmon/Desktop/League/tftBot/refresh.PNG', confidence = 0.9)
+                refresh = pyA.locateOnScreen('images/refresh.PNG', confidence = 0.9)
                 if refresh != None: 
                     refresh = pyA.center(refresh)
                     refreshX, refreshY = refresh
