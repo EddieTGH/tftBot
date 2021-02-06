@@ -125,7 +125,7 @@ def getIntoFirstGame():
     
  
 def surrender():
-    if pyA.pixelMatchesColor(1832, 456, (231, 190, 41)) == True or pyA.pixelMatchesColor(1834, 456, (231, 190, 41)) True: #1832,456  #1902,433 #1850,471
+    if pyA.pixelMatchesColor(1832, 456, (231, 190, 41)) == True or pyA.pixelMatchesColor(1834, 456, (231, 190, 41)) == True: #1832,456  #1902,433 #1850,471
         time.sleep(3)
         s2 = pyA.locateOnScreen('images/options.PNG', confidence = 0.75)
         if s2 != None:
