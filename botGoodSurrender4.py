@@ -173,7 +173,11 @@ def surrender2():
             s2X, s2Y = s2
             time.sleep(1)
             pyA.click(s2X, s2Y)
-            #pyA.click(s2X, s2Y) 
+            pyA.click(s2X, s2Y) 
+            time.sleep(1)
+            pyA.mouseDown()
+            pyA.mouseUp()
+            time.sleep(1)
             pyA.mouseDown()
             pyA.mouseUp()
         time.sleep(2)
@@ -184,7 +188,11 @@ def surrender2():
             s1X, s1Y = s1
             time.sleep(1)
             pyA.click(s1X, s1Y)
-            #pyA.click(s1X, s1Y) 
+            pyA.click(s1X, s1Y) 
+            time.sleep(1)
+            pyA.mouseDown()
+            pyA.mouseUp()
+            time.sleep(1)
             pyA.mouseDown()
             pyA.mouseUp()
         time.sleep(2)
@@ -195,7 +203,11 @@ def surrender2():
             s3X, s3Y = s3
             time.sleep(1)
             pyA.click(s3X, s3Y)
-            #pyA.click(s1X, s1Y) 
+            pyA.click(s3X, s3Y) 
+            time.sleep(1)
+            pyA.mouseDown()
+            pyA.mouseUp()
+            time.sleep(1)
             pyA.mouseDown()
             pyA.mouseUp()
         
@@ -1057,6 +1069,8 @@ def tftWinnerSurrender4():
             altTab()
             time.sleep(2)
             x = surrender2()
+            if x < 5:
+                x = exitGame()
             time.sleep(2)   
             
             if x < 5: 
@@ -1068,7 +1082,29 @@ def tftWinnerSurrender4():
             #print('program is stopping')
             break
  
- 
+def tester():
+    x = 3
+    while x < 5:
+        time.sleep(30)  
+        y = exitGame() #Matt
+        if y > 5:
+            break
+        altTab()
+        time.sleep(2)
+        x = surrender2()
+        if x < 5:
+            x = exitGame()
+        time.sleep(2)   
+        
+        if x < 5: 
+            altTab()
+        #print(x)
+
+    print('recognized game finished!')
+    if reEnter() == 6: #Matt
+        #print('program is stopping')
+        pass
+
 def tftAFK(): 
     getIntoFirstGame()
     keepGoing = True
@@ -1162,8 +1198,9 @@ def getpos():
 #getpos()
 #surrender()
 #tftWinner()
-surrender2()
-#tftWinnerSurrender4()
+#surrender2()
+#tester()
+tftWinnerSurrender4()
 #tftAFK()
  
 
