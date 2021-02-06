@@ -125,24 +125,37 @@ def getIntoFirstGame():
     
 
 def surrender():
-    time.sleep(3)
-    pyA.hotkey('esc')
-    s1 = pyA.locateOnScreen('images/surrenderButton.PNG', confidence = 0.75)
-    if s1 != None:
-        print("Pic found!")
-        s1 = pyA.center(s1)
-        s1X, s1Y = s1
+    if pyA.pixelMatchesColor(1902, 433, (231, 190, 41)) == True: #1850,471
+        time.sleep(3)
+        s2 = pyA.locateOnScreen('images/options.PNG', confidence = 0.75)
+        if s2 != None:
+            print("Pic found!")
+            s2 = pyA.center(s2)
+            s2X, s2Y = s2
+            time.sleep(1)
+            pyA.click(s2X, s2Y)
+            #pyA.click(s2X, s2Y) 
+            pyA.mouseDown()
+            pyA.mouseUp()
         time.sleep(1)
-        pyA.click(s1X, s1Y)
-        pyA.click(s1X, s1Y) 
-        pyA.mouseDown()
-        pyA.mouseUp()
+        s1 = pyA.locateOnScreen('images/surrender3.PNG', confidence = 0.75)
+        if s1 != None:
+            print("Pic found!")
+            s1 = pyA.center(s1)
+            s1X, s1Y = s1
+            time.sleep(1)
+            pyA.click(s1X, s1Y)
+            #pyA.click(s1X, s1Y) 
+            #pyA.mouseDown()
+            #pyA.mouseUp()
 
+        else:
+            print("Did not find the surrender1 button")
+            return
+
+        time.sleep(3)
     else:
-        print("Did not find the surrender1 button")
-        return
-
-    time.sleep(3)
+        print("not in 4th place yet")
 
 
     s2 = pyA.locateOnScreen('images/surrender2Button.PNG', confidence = 0.75)
@@ -1054,8 +1067,13 @@ def clickAndComment(): #This is for the bad computer
 
 
 def getpos():
-    time.sleep(2)
+    time.sleep(1)
+    im = pyA.screenshot()
+    pix = im.getpixel((1850, 471))
+    print(pix)
+    time.sleep(1)
     print(pyA.position())
+
 
 #getpos()
 #clickAndComment()
@@ -1063,5 +1081,7 @@ def getpos():
 #main()
 #main2()
 #main3() 
-tftWinner()
+getpos()
+#surrender()
+#tftWinner()
 #tftAFK()
