@@ -158,6 +158,56 @@ def surrender():
     else:
         print("not in 4th place yet")
         return 2
+
+def surrender2():
+    numberDead = []
+    numberDead = list(pyA.locateAllOnScreen('images/oneDead.PNG'))
+    leng = len(numberDead)
+    print(leng)
+    if leng >= 4:
+        time.sleep(3)
+        s2 = pyA.locateOnScreen('images/options.PNG', confidence = 0.75)
+        if s2 != None:
+            print("Pic found!")
+            s2 = pyA.center(s2)
+            s2X, s2Y = s2
+            time.sleep(1)
+            pyA.click(s2X, s2Y)
+            #pyA.click(s2X, s2Y) 
+            pyA.mouseDown()
+            pyA.mouseUp()
+        time.sleep(2)
+        s1 = pyA.locateOnScreen('images/surrender3.PNG', confidence = 0.75)
+        if s1 != None:
+            print("Pic found!")
+            s1 = pyA.center(s1)
+            s1X, s1Y = s1
+            time.sleep(1)
+            pyA.click(s1X, s1Y)
+            #pyA.click(s1X, s1Y) 
+            pyA.mouseDown()
+            pyA.mouseUp()
+        time.sleep(2)
+        s3 = pyA.locateOnScreen('images/surrender33.PNG', confidence = 0.75)
+        if s3 != None:
+            print("Pic found!")
+            s3 = pyA.center(s3)
+            s3X, s3Y = s3
+            time.sleep(1)
+            pyA.click(s3X, s3Y)
+            #pyA.click(s1X, s1Y) 
+            pyA.mouseDown()
+            pyA.mouseUp()
+        
+            return 10
+ 
+        else:
+            print("Did not find the surrender1 button")
+            return 2
+ 
+    else:
+        print("not in 4th place yet")
+        return 2
  
  
 def exitGame():
@@ -1006,7 +1056,7 @@ def tftWinnerSurrender4():
                 break
             altTab()
             time.sleep(2)
-            x = surrender()
+            x = surrender2()
             time.sleep(2)   
             
             if x < 5: 
@@ -1112,7 +1162,8 @@ def getpos():
 #getpos()
 #surrender()
 #tftWinner()
-tftWinnerSurrender4()
+surrender2()
+#tftWinnerSurrender4()
 #tftAFK()
  
 
