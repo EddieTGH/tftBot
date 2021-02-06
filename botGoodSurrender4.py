@@ -6,12 +6,12 @@ from twilio.rest import Client
 # Download the helper library from https://www.twilio.com/docs/python/install
 import os
 #load me into tft matches all night     if pyautogui.locateOnScreen('/Users/edmond/Desktop/ROTMGBot#1/notread.png', confidence = 0.75) != None:
-
-
-
+ 
+ 
+ 
 def getIntoFirstGame():
     time.sleep(3)
-
+ 
     pic1 = pyA.locateOnScreen('images/TFTtab2.png', confidence = 0.75)
     if pic1 != None:
         #print("Pic found!")
@@ -24,9 +24,9 @@ def getIntoFirstGame():
     else:
         #print("Did not find first TFT Tab")
         return
-
+ 
     time.sleep(3)
-
+ 
     pic2 = pyA.locateOnScreen('images/playbutton.PNG', confidence = 0.75)
     pic22 = pyA.locateOnScreen('images/partybutton.PNG', confidence = 0.75)
     if pic2 != None:
@@ -48,10 +48,10 @@ def getIntoFirstGame():
     else:
         #print("Did not find play button")
         return
-
+ 
     time.sleep(3)
-
-
+ 
+ 
     pic3 = pyA.locateOnScreen('images/teamfighttab.PNG', confidence = 0.75)
     if pic3 != None:
        #print("Pic found!")
@@ -64,9 +64,9 @@ def getIntoFirstGame():
     else:
         #print("Did not find team fight tab")
         return
-
+ 
     time.sleep(3)
-
+ 
     pic4 = pyA.locateOnScreen('images/confirmbutton.PNG', confidence = 0.75)
     if pic4 != None:
         #print("Pic found!")
@@ -79,10 +79,10 @@ def getIntoFirstGame():
     else:
         #print("Did not find the confirm button")
         return
-
+ 
     time.sleep(4)
-
-
+ 
+ 
     pic5 = pyA.locateOnScreen('images/findMatchbutton.PNG', confidence = 0.75)
     if pic5 != None:
         #print("Pic found!")
@@ -95,10 +95,10 @@ def getIntoFirstGame():
     else:
         #print("Did not find the find match button")
         return
-
+ 
     time.sleep(3)
-
-
+ 
+ 
     notinGame = True
     while notinGame:
         pic6 = pyA.locateOnScreen('images/Accept2.PNG', confidence = 0.9)
@@ -118,14 +118,14 @@ def getIntoFirstGame():
         if (pyA.locateOnScreen('images/TFTTab2.PNG', confidence = 0.75)) == None:
             notinGame = False
             #print("i am now in game")
-
+ 
     
     #print("end of getIntofirstgame script")
     #print(datetime.now())
     
-
+ 
 def surrender():
-    if pyA.pixelMatchesColor(1902, 433, (231, 190, 41)) == True: #1850,471
+    if pyA.pixelMatchesColor(1832, 456, (231, 190, 41)) == True or pyA.pixelMatchesColor(1834, 456, (231, 190, 41)) True: #1832,456  #1902,433 #1850,471
         time.sleep(3)
         s2 = pyA.locateOnScreen('images/options.PNG', confidence = 0.75)
         if s2 != None:
@@ -137,7 +137,7 @@ def surrender():
             #pyA.click(s2X, s2Y) 
             pyA.mouseDown()
             pyA.mouseUp()
-        time.sleep(1)
+        time.sleep(2)
         s1 = pyA.locateOnScreen('images/surrender3.PNG', confidence = 0.75)
         if s1 != None:
             print("Pic found!")
@@ -146,35 +146,20 @@ def surrender():
             time.sleep(1)
             pyA.click(s1X, s1Y)
             #pyA.click(s1X, s1Y) 
-            #pyA.mouseDown()
-            #pyA.mouseUp()
-
+            pyA.mouseDown()
+            pyA.mouseUp()
+        
+            return 10
+ 
         else:
             print("Did not find the surrender1 button")
-            return
-
-        time.sleep(3)
+            return 2
+ 
     else:
         print("not in 4th place yet")
-
-
-    s2 = pyA.locateOnScreen('images/surrender2Button.PNG', confidence = 0.75)
-    if s2 != None:
-        print("Pic found!")
-        s2 = pyA.center(s2)
-        s2X, s2Y = s2
-        time.sleep(1)
-        pyA.click(s2X, s2Y) 
-        pyA.click(s2X, s2Y) 
-        pyA.mouseDown()
-        pyA.mouseUp()
-
-    else:
-        print("Did not find the surrender2 button")
-        return
-
-    time.sleep(2)
-
+        return 2
+ 
+ 
 def exitGame():
     time.sleep(3)
     ex = pyA.locateOnScreen('images/exitButton.PNG', confidence = 0.75)
@@ -192,7 +177,7 @@ def exitGame():
         #print('exit now button clicked')
         #print(datetime.now())
         return 10
-
+ 
     else:
         #print("Did not find the exit button")
         #print(datetime.now())
@@ -210,9 +195,9 @@ def exitGame():
             return 10
         else:   
             return 2
-
+ 
 def reEnter():
-
+ 
     okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
@@ -223,9 +208,9 @@ def reEnter():
         pyA.mouseUp()
         #print('finished quest ok button clicked')
         #print(datetime.now())
-
+ 
     time.sleep(3)
-
+ 
     okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
@@ -236,11 +221,11 @@ def reEnter():
         pyA.mouseUp()
         #print('finished quest ok button clicked')
         #print(datetime.now())
-
+ 
     time.sleep(3)
-
+ 
     
-
+ 
     okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
@@ -253,7 +238,7 @@ def reEnter():
         #print(datetime.now())
     
     time.sleep(3)
-
+ 
     okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
@@ -266,7 +251,7 @@ def reEnter():
         #print(datetime.now())
         
     time.sleep(3)
-
+ 
     okButton = pyA.locateOnScreen('images/okButt.PNG', confidence = 0.75)
     if okButton != None:
         okButton = pyA.center(okButton)
@@ -279,8 +264,8 @@ def reEnter():
         #print(datetime.now())
     
     time.sleep(4)
-
-
+ 
+ 
     playAgain = pyA.locateOnScreen('images/playagainbutton.PNG', confidence = 0.75)
     if playAgain != None:
         #print("Pic found!")
@@ -296,9 +281,9 @@ def reEnter():
         #print("Did not find the play again button")
         #print(datetime.now())
         return 12
-
+ 
     time.sleep(4)
-
+ 
     
     pic5 = pyA.locateOnScreen('images/findMatchbutton.PNG', confidence = 0.75)
     if pic5 != None:
@@ -314,9 +299,9 @@ def reEnter():
         #print("Did not find the re-find match button")
         #print(datetime.now())
         return 6
-
+ 
     time.sleep(3)
-
+ 
     z = 0
     notinGame = True
     while notinGame:
@@ -339,27 +324,27 @@ def reEnter():
                 restart()
                 getIntoFirstGame()
                 return 12
-
+ 
         time.sleep(5)
         #Check if I am in the match
         if (pyA.locateOnScreen('images/TFTTab2.PNG', confidence = 0.75)) == None:
             notinGame = False
             #print("i am now in game")
             #print(datetime.now())
-
+ 
     
     #print("re enter script done")
     #print(datetime.now())
-
-
-
+ 
+ 
+ 
 def positionChecker():
     pos = pyA.position()
     return pos
-
+ 
 def reset():
     pass
-
+ 
 def loadingScreen():
     notinGame = True
     while notinGame:
@@ -374,7 +359,7 @@ def loadingScreen():
             pass
         
     
-
+ 
 def placeDownChamps():
     notinGame = True
     while notinGame:
@@ -390,7 +375,7 @@ def placeDownChamps():
         
     dragChamp()
     print('hopefully those champs were dragged in')
-
+ 
 def placeDownChamps2():
     notinGame = True
     while notinGame:
@@ -406,8 +391,8 @@ def placeDownChamps2():
         
     dragChamp2()
     print('hopefully those champs were dragged in')
-
-
+ 
+ 
 def buyXP():
     notinGame = True
     while notinGame:
@@ -432,7 +417,7 @@ def buyXP():
             
         else:
             print("xp not found (planning phase not found)")
-
+ 
 def buyXP22(): #Work in progress
     notinGame = True
     while notinGame:
@@ -462,8 +447,8 @@ def buyXP22(): #Work in progress
         else:
             print("xp not found (planning phase not found)")    
     dragGoodChamp()
-
-
+ 
+ 
 def buyXP2():
     y = 0
     notinGame = True
@@ -499,7 +484,7 @@ def buyXP2():
                 return
         
     dragGoodChampsLate()
-
+ 
 def buyXP2Early():
     notinGame = True
     while notinGame:
@@ -527,7 +512,7 @@ def buyXP2Early():
             if re != None or re2 != None:
                 return
     dragGoodChampEarly()
-
+ 
 def dragGoodChamp():
     champs = 0
     checking = True
@@ -636,7 +621,7 @@ def dragGoodChampsLate():
         if re == None:
             checking += 100 
         time.sleep(1)
-
+ 
 def dragGoodChampEarly():
     checking = 0
     rerolls = 0
@@ -688,13 +673,13 @@ def dragGoodChampEarly():
             time.sleep(1)
             rerolls +=1   
         time.sleep(1)
-
-
+ 
+ 
 def dragChamp():
     x1 = 573
     y = 1003
     x2 = 828
-
+ 
     x11 = 423
     x22 = 547
     yy = 782
@@ -706,7 +691,7 @@ def dragChamp():
     time.sleep(0.5)
     pyA.mouseUp(x2,y)
     time.sleep(1)
-
+ 
     '''
     pyA.mouseDown(x11,yy)
     time.sleep(0.5)
@@ -720,13 +705,13 @@ def dragChamp():
     time.sleep(0.5)
     pyA.mouseUp()
     time.sleep(1) '''
-
-
+ 
+ 
 def dragChamp2():
     x1 = 573
     y = 1003
     x2 = 1000
-
+ 
     x11 = 423
     x22 = 547
     yy = 782
@@ -738,7 +723,7 @@ def dragChamp2():
     time.sleep(0.5)
     pyA.mouseUp(x2,y)
     time.sleep(1)
-
+ 
     '''
     pyA.mouseDown(x11,yy)
     time.sleep(0.5)
@@ -752,7 +737,7 @@ def dragChamp2():
     time.sleep(0.5)
     pyA.mouseUp()
     time.sleep(1) '''
-
+ 
 def restart():
     X = pyA.locateOnScreen('images/leagueExit.PNG', confidence = 0.7)
     if X != None: 
@@ -781,8 +766,8 @@ def restart():
         pyA.mouseDown()
         pyA.mouseUp() 
     time.sleep(60)
-
-
+ 
+ 
 def inGame():
     inGame = True
     while inGame:
@@ -822,10 +807,10 @@ def inGame():
                     pyA.mouseDown()
                     pyA.mouseUp() 
         
-
-
-
-
+ 
+ 
+ 
+ 
 def altTab():
     time.sleep(1)
     pyA.hotkey('alt', 'tab')  
@@ -834,9 +819,9 @@ def altTab():
     time.sleep(2)
     
         
-
-
-
+ 
+ 
+ 
 def main():
     getIntoFirstGame()
     keepGoing = True
@@ -845,9 +830,9 @@ def main():
         surrender()
         exitGame()
         reEnter()
-
-
-
+ 
+ 
+ 
 def main2():
     getIntoFirstGame()
     keepGoing = True
@@ -918,7 +903,7 @@ def main3():
         if reEnter() == 6:
             print('program is stopping')
             break
-
+ 
 def main4():
     getIntoFirstGame()
     keepGoing = True
@@ -985,11 +970,54 @@ def tftWinner():
             if x < 5: 
                 altTab()
             #print(x)
-
+ 
         print('recognized game finished!')
         if reEnter() == 6: #Matt
             #print('program is stopping')
             break
+ 
+def tftWinnerSurrender4(): 
+    getIntoFirstGame() #Matt
+    keepGoing = True
+    while keepGoing:
+        time.sleep(10) 
+        loadingScreen() #Matt
+        altTab()
+        time.sleep(480) #8
+        print('one min until buying champs at level 5 maxreroll 3 times')
+        time.sleep(60) #1
+        altTab()
+        buyXP2Early()
+        altTab()
+        time.sleep(180) #3
+        print('one min until upgrading to level 7 and buying champs until no gold left')
+        time.sleep(60)
+        altTab() 
+        buyXP2()
+        altTab()
+        time.sleep(120)#2
+        print('1 min left')
+        time.sleep(60)#1 
+        x = 3
+        while x < 5:
+            time.sleep(30)  
+            y = exitGame() #Matt
+            if y > 5:
+                break
+            altTab()
+            time.sleep(2)
+            x = surrender()
+            time.sleep(2)   
+            
+            if x < 5: 
+                altTab()
+            #print(x)
+ 
+        print('recognized game finished!')
+        if reEnter() == 6: #Matt
+            #print('program is stopping')
+            break
+ 
  
 def tftAFK(): 
     getIntoFirstGame()
@@ -1015,7 +1043,7 @@ def tftAFK():
             if x < 5: 
                 altTab()
             #print(x)
-
+ 
         print('recognized game finished!')
         if reEnter() == 6:
             #print('program is stopping')
@@ -1063,25 +1091,28 @@ def clickAndComment(): #This is for the bad computer
                 loop = False
             
         
-
-
-
+ 
+ 
+ 
 def getpos():
     time.sleep(1)
     im = pyA.screenshot()
-    pix = im.getpixel((1850, 471))
+    pix = im.getpixel((1850, 471)) #1832 456
     print(pix)
     time.sleep(1)
     print(pyA.position())
-
-
+ 
+ 
 #getpos()
 #clickAndComment()
-
+ 
 #main()
 #main2()
 #main3() 
-getpos()
+#getpos()
 #surrender()
 #tftWinner()
+tftWinnerSurrender4()
 #tftAFK()
+ 
+
