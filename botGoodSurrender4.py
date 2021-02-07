@@ -1056,10 +1056,8 @@ def tftWinnerSurrender4():
         time.sleep(60)
         altTab() 
         buyXP2()
-        altTab()
-        time.sleep(120)#2
-        print('1 min left')
-        time.sleep(60)#1 
+        altTab() 
+        time.sleep(10)
         x = 3
         while x < 5:
             time.sleep(30)  
