@@ -1194,7 +1194,8 @@ def getpos():
 #main2()
 #main3() 
 #getpos()
-#surrender()
+#surrender()        +
+
 #tftWinner()
 #surrender2()
 #tester()
