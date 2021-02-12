@@ -1047,7 +1047,7 @@ def tftWinnerSurrender4():
         altTab()
         time.sleep(480) #8
         print('one min until buying champs at level 5 maxreroll 3 times')
-        time.sleep(60) #1
+        time.sleep(90) #1
         altTab()
         buyXP2Early()
         altTab()
@@ -1057,10 +1057,10 @@ def tftWinnerSurrender4():
         altTab() 
         buyXP2()
         altTab() 
-        time.sleep(10)
+        time.sleep(120)
         x = 3
         while x < 5:
-            time.sleep(30)  
+            time.sleep(60)  
             y = exitGame() #Matt
             if y > 5:
                 break
