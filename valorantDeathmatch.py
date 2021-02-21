@@ -66,7 +66,7 @@ def checkInGame():
     loop = True
  
     while loop:
-        time.sleep(5)
+        time.sleep(3)
         pic3 = pyA.locateOnScreen('vImages/gun2.PNG', confidence = 0.65)
         pic4 = pyA.locateOnScreen('vImages/gun1.PNG', confidence = 0.65)
         if pic3 != None:
@@ -101,19 +101,20 @@ def inGameandJoinNext():
     
     altTab()
     for i in range (0,8):
-        time.sleep(52)
+        time.sleep(45)
         print('about to commence movement and check if game done')
         altTab()
-        time.sleep(8)
+        time.sleep(15)
         pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.75)
         pic5 = pyA.locateOnScreen('vImages/skipbutton.PNG', confidence = 0.75)
         if pic4 != None or pic5 != None:
             altTab()
             print('exited early')
-            break
+            break                                                                                                                                        
         else:
             move()
         altTab()
+        
         print('movement done')
             
     altTab()
