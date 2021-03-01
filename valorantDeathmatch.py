@@ -105,7 +105,7 @@ def inGameandJoinNext():
         print('about to commence movement and check if game done')
         altTab()
         time.sleep(15)
-        pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.75)
+        pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.65)
         pic5 = pyA.locateOnScreen('vImages/skipbutton.PNG', confidence = 0.75)
         pic6 = pyA.locateOnScreen('vImages/skipbutton1.PNG', confidence = 0.75)
         if pic4 != None or pic5 != None or pic6 != None:
