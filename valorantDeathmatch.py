@@ -124,7 +124,9 @@ def inGameandJoinNext():
     while loop:
         pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.75)
         if pic4 != None:
-        #print("Pic found!")
+            time.sleep(2)
+            pyA.hotkey('win', 'prntscrn')
+            time.sleep(2)
             pic4 = pyA.center(pic4)
             pic4X, pic4Y = pic4
             time.sleep(1)
