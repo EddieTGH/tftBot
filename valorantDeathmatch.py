@@ -107,7 +107,8 @@ def inGameandJoinNext():
         time.sleep(15)
         pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.75)
         pic5 = pyA.locateOnScreen('vImages/skipbutton.PNG', confidence = 0.75)
-        if pic4 != None or pic5 != None:
+        pic6 = pyA.locateOnScreen('vImages/skipbutton1.PNG', confidence = 0.75)
+        if pic4 != None or pic5 != None or pic6 != None:
             altTab()
             print('exited early')
             break                                                                                                                                        
@@ -118,10 +119,33 @@ def inGameandJoinNext():
         print('movement done')
             
     altTab()
+    if pic6 != None:
+        pic6 = pyA.center(pic6)
+        pic6X, pic6Y = pic6
+        time.sleep(1)
+        pyA.moveTo(pic6X, pic6Y)
+        time.sleep(1)
+        pyA.click(pic6X, pic6Y)
+        pyA.click(pic6X, pic6Y)
+        print('clicked the skip button')
+        loop = False
+
  
     loop = True
     print('movement is DONE. checking if game is done')
     while loop:
+        pic5 = pyA.locateOnScreen('vImages/skipButton1.PNG', confidence = 0.75)
+        if pic5 != None:
+            pic5 = pyA.center(pic5)
+            pic5X, pic5Y = pic5
+            time.sleep(1)
+            pyA.moveTo(pic5X, pic5Y)
+            time.sleep(1)
+            pyA.click(pic5X, pic5Y)
+            pyA.click(pic5X, pic5Y)
+            print('going into next game')
+            time.sleep(3)
+
         pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.75)
         if pic4 != None:
             time.sleep(2)
