@@ -67,13 +67,12 @@ def checkInGame():
  
     while loop:
         time.sleep(3)
-        pic3 = pyA.locateOnScreen('vImages/gun2.PNG', confidence = 0.65)
-        pic4 = pyA.locateOnScreen('vImages/gun1.PNG', confidence = 0.65)
-        if pic3 != None:
+        pic4 = pyA.locateOnScreen('vImages/career.PNG', confidence = 0.75)
+        if pic4  == None:
             print("in game!")
             loop = False
         else: 
-            print('no gun yet')
+            print('still in the lobby yet')
             
         
  
@@ -98,8 +97,9 @@ def move():
     pyA.keyUp('a')
     
 def inGameandJoinNext():
-    
+    time.sleep(2)
     altTab()
+    print("should be back in vs code")
     for i in range (0,8):
         time.sleep(45)
         print('about to commence movement and check if game done')
@@ -161,12 +161,76 @@ def inGameandJoinNext():
             print('going into next game')
             loop = False
  
+def inGameandJoinNext2():
+    
+    altTab()
+    
+    time.sleep(420) #7 mins
+    print('about to commence movement')
+    altTab()
+    time.sleep(8)
+    while True:
+        pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.65)
+        pic5 = pyA.locateOnScreen('vImages/skipbutton.PNG', confidence = 0.75)
+        pic6 = pyA.locateOnScreen('vImages/skipbutton1.PNG', confidence = 0.75)
+        if pic4 != None or pic5 != None or pic6 != None:
+            print('exited early')
+            break                                                                                                                                        
+        else:
+            move()
+            time.sleep(10)
+            
+    print('game is done')
+            
+    if pic6 != None:
+        pic6 = pyA.center(pic6)
+        pic6X, pic6Y = pic6
+        time.sleep(1)
+        pyA.moveTo(pic6X, pic6Y)
+        time.sleep(1)
+        pyA.click(pic6X, pic6Y)
+        pyA.click(pic6X, pic6Y)
+        print('clicked the skip button')
+        loop = False
+
  
+    loop = True
+    print('movement is DONE. checking if game is done')
+    while loop:
+        pic5 = pyA.locateOnScreen('vImages/skipButton1.PNG', confidence = 0.75)
+        if pic5 != None:
+            pic5 = pyA.center(pic5)
+            pic5X, pic5Y = pic5
+            time.sleep(1)
+            pyA.moveTo(pic5X, pic5Y)
+            time.sleep(1)
+            pyA.click(pic5X, pic5Y)
+            pyA.click(pic5X, pic5Y)
+            print('going into next game')
+            time.sleep(3)
+
+        pic4 = pyA.locateOnScreen('vImages/playAgain.PNG', confidence = 0.75)
+        if pic4 != None:
+            time.sleep(2)
+            pyA.hotkey('win', 'prntscrn')
+            time.sleep(2)
+            pic4 = pyA.center(pic4)
+            pic4X, pic4Y = pic4
+            time.sleep(1)
+            pyA.moveTo(pic4X, pic4Y)
+            time.sleep(1)
+            pyA.click(pic4X, pic4Y)
+            pyA.click(pic4X, pic4Y)
+            print('going into next game')
+            loop = False
+ 
+
+
 def main():
     getIntoFirstGame()
     while True:
         checkInGame()
-        inGameandJoinNext()
+        inGameandJoinNext2()
     
  
  
